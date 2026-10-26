@@ -1,4 +1,4 @@
-# Orchestrated Agentic AI for Software Engineering
+# Major Project - DisasterAI
 
 This is a beginner-friendly implementation of objectives 1, 2, and 3 from the Review-1 PDF. It coordinates six specialist stages: requirements analysis, system design, code generation, test planning, code review, and documentation. Each stage receives the original requirements and earlier outputs through LangGraph shared workflow state. PostgreSQL and Prisma store each workflow and update stage progress as the agents work.
 

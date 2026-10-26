@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const API = "http://localhost:4000/api";
 const example = "Build a campus event management web app where students can browse events, register, and receive reminders. Organizers should create events and see attendee lists. Include an admin view for moderation.";

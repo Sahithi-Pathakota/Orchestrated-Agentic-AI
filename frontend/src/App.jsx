@@ -70,7 +70,7 @@ function App() {
   return (
     <main className="page">
       <header className="header">
-        <div className="brand"><div className="brand-icon">OA</div><div><span className="eyebrow">SOFTWARE ENGINEERING WORKFLOW</span><h1>Orchestrated Agentic AI</h1></div></div>
+        <div className="brand"><div className="brand-icon">OA</div><div><span className="eyebrow">SOFTWARE ENGINEERING WORKFLOW</span><h1>Major Project - DisasterAI</h1></div></div>
         <span className="local-tag"><i /> Local prototype</span>
       </header>
 

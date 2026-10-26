@@ -121,18 +121,18 @@ async function runStage(stage, state) {
 
 let workflow = new StateGraph(WorkflowState);
 for (const stage of stageDefinitions) {
-  workflow = workflow.addNode(stage.key, async (state) => ({
+  workflow = workflow.addNode(`agent_${stage.key}`, async (state) => ({
     [stage.key]: await runStage(stage, state),
   }));
 }
 workflow = workflow
-  .addEdge(START, "analysis")
-  .addEdge("analysis", "design")
-  .addEdge("design", "code")
-  .addEdge("code", "tests")
-  .addEdge("tests", "review")
-  .addEdge("review", "documentation")
-  .addEdge("documentation", END);
+  .addEdge(START, "agent_analysis")
+  .addEdge("agent_analysis", "agent_design")
+  .addEdge("agent_design", "agent_code")
+  .addEdge("agent_code", "agent_tests")
+  .addEdge("agent_tests", "agent_review")
+  .addEdge("agent_review", "agent_documentation")
+  .addEdge("agent_documentation", END);
 
 const app = workflow.compile();
 
@@ -148,3 +148,4 @@ export async function runSoftwareWorkflow(workflowId, requirements) {
     })),
   };
 }
+

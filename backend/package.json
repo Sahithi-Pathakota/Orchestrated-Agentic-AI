@@ -1,0 +1,29 @@
+{
+  "name": "software-agent-platform-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.js",
+    "start": "tsx src/server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push && prisma generate",
+    "db:studio": "prisma studio"
+  },
+  "engines": { "node": ">=22.18" },
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "@langchain/langgraph": "^1.0.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.16.3",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^7.10.0",
+    "tsx": "^4.20.6"
+  }
+}

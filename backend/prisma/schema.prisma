@@ -1,0 +1,36 @@
+generator client {
+  provider               = "prisma-client"
+  output                 = "../generated/prisma"
+  importFileExtension    = "ts"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model WorkflowRun {
+  id           String          @id @default(cuid())
+  requirements String          @db.Text
+  mode         String          @default("demo")
+  status       String          @default("pending")
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  stages       WorkflowStage[]
+}
+
+model WorkflowStage {
+  id          String      @id @default(cuid())
+  workflowId  String
+  workflow    WorkflowRun @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  key         String
+  title       String
+  stageOrder  Int
+  status      String      @default("pending")
+  output      String?     @db.Text
+  error       String?     @db.Text
+  startedAt   DateTime?
+  completedAt DateTime?
+
+  @@unique([workflowId, key])
+  @@index([workflowId, stageOrder])
+}
